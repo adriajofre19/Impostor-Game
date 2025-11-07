@@ -50,7 +50,6 @@ const WORDS = [
     "Semafóro",
     "Vidreres",
     "Caja dientes",
-    "Chocolate",
 
 ];
 
