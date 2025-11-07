@@ -78,6 +78,7 @@ function RevealCard({ assignment, position, total, onNext }: RevealCardProps) {
     }, [assignment.player.id]);
 
     const beginDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+        event.preventDefault();
         pointer.current = {
             active: true,
             startY: event.clientY,
@@ -91,6 +92,7 @@ function RevealCard({ assignment, position, total, onNext }: RevealCardProps) {
             return;
         }
 
+        event.preventDefault();
         const delta = pointer.current.startY - event.clientY;
         const newProgress = Math.max(
             0,
@@ -106,6 +108,7 @@ function RevealCard({ assignment, position, total, onNext }: RevealCardProps) {
 
     const endDrag = (event?: ReactPointerEvent<HTMLDivElement>) => {
         if (pointer.current.active && event) {
+            event.preventDefault();
             event.currentTarget.releasePointerCapture(event.pointerId);
         }
 
@@ -153,7 +156,7 @@ function RevealCard({ assignment, position, total, onNext }: RevealCardProps) {
                 </div>
 
                 <div
-                    className="absolute inset-0 flex cursor-pointer flex-col items-center justify-center gap-3 bg-slate-800 text-slate-200 shadow-inner transition-transform"
+                    className="absolute inset-0 flex cursor-pointer flex-col items-center justify-center gap-3 bg-slate-800 text-slate-200 shadow-inner transition-transform touch-none select-none"
                     style={{ transform: `translateY(-${progress}%)` }}
                     onPointerDown={beginDrag}
                     onPointerMove={updateDrag}
