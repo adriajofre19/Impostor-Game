@@ -84,6 +84,8 @@ function RevealCard({ assignment, position, total, onNext }: RevealCardProps) {
             startY: event.clientY,
         };
         setIsPointerActive(true);
+        setProgress(100);
+        setHasPeeked(true);
         event.currentTarget.setPointerCapture(event.pointerId);
     };
 
@@ -100,10 +102,6 @@ function RevealCard({ assignment, position, total, onNext }: RevealCardProps) {
         );
 
         setProgress(newProgress);
-
-        if (newProgress >= 100) {
-            setHasPeeked(true);
-        }
     };
 
     const endDrag = (event?: ReactPointerEvent<HTMLDivElement>) => {
