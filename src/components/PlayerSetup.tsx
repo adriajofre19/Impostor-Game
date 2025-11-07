@@ -50,6 +50,10 @@ const WORDS = [
     "Semafóro",
     "Vidreres",
     "Caja dientes",
+    "Barril",
+    "Hookah",
+    "Asfaltar",
+
 
 ];
 
@@ -167,10 +171,7 @@ function RevealCard({ assignment, position, total, onNext }: RevealCardProps) {
                     <p className="px-8 text-base font-semibold uppercase tracking-wider text-slate-100">
                         Desliza hacia arriba
                     </p>
-                    <p className="px-8 text-xs text-slate-300">
-                        Mantén pulsado mientras deslizas. Al soltar, la tarjeta se cerrará
-                        otra vez.
-                    </p>
+
                 </div>
             </div>
 
